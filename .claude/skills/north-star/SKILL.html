@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Star Architecture - Skill Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        code {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+        }
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .metadata {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        .metadata p {
+            margin-bottom: 8px;
+        }
+        .checklist {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .checklist li {
+            list-style: none;
+            padding-left: 30px;
+            position: relative;
+        }
+        .checklist li:before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+            color: #3498db;
+        }
+        .pattern-box {
+            background: #fff9e6;
+            border-left: 4px solid #f39c12;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .reference-link {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px 5px 5px 0;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9em;
+            transition: background 0.3s;
+        }
+        .reference-link:hover {
+            background: #2980b9;
+        }
+        .nav {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        .nav a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .requirement {
+            background: #e8f8f5;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .workflow {
+            background: #fef5e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="metadata">
+            <p><strong>Skill Name:</strong> north-star</p>
+            <p><strong>Description:</strong> AI-powered architecture builder using Generative AI, Agentic AI, and RAG technologies for rapid MVP creation (1-2 weeks). Use when users request: (1) Building MVPs for AI-powered solutions, (2) Designing modular AI architectures with GenAI/Agentic AI/RAG, (3) Setting up RAG pipelines with document/file stores, (4) Implementing AI automation workflows, (5) Selecting open-source technology stacks for on-prem or cloud AI deployments, or (6) Creating API-driven, modular AI systems.</p>
+        </div>
+
+        <h1>North Star Architecture</h1>
+
+        <div class="nav">
+            <strong>Quick Navigation:</strong>
+            <a href="#overview">Overview</a> |
+            <a href="#requirements">Core Requirements</a> |
+            <a href="#workflows">Workflows</a> |
+            <a href="#best-practices">Best Practices</a> |
+            <a href="#patterns">Common Patterns</a> |
+            <a href="#resources">Resources</a>
+        </div>
+
+        <h2 id="overview">Overview</h2>
+        <p>This skill guides rapid MVP development (1-2 weeks) for AI-powered solutions using open-source Generative AI, Agentic AI, and RAG technologies. It ensures modular, API-driven architectures that work on-premises or in-cloud.</p>
+
+        <h2 id="requirements">Core Architecture Requirements</h2>
+        <p>Every implementation MUST adhere to these non-negotiable requirements:</p>
+
+        <div class="requirement">
+            <ol>
+                <li><strong>Open Source Only</strong> - Use only open-source technologies</li>
+                <li><strong>Deployment Flexibility</strong> - Support both on-premises and in-country cloud</li>
+                <li><strong>API-First</strong> - All components expose APIs</li>
+                <li><strong>Modular Design</strong> - Independently deployable components</li>
+                <li><strong>RAG Foundation</strong> - Start with document stores, file stores, organizational tool exports</li>
+                <li><strong>AI Stack</strong> - Incorporate GenAI, Agentic AI, and RAG</li>
+                <li><strong>Automation Ready</strong> - Design for AI automation integration</li>
+                <li><strong>MVP Speed</strong> - Target 1-2 week delivery (our differentiator)</li>
+            </ol>
+        </div>
+
+        <h2 id="workflows">Workflow Decision Tree</h2>
+        <pre>
+User Request
+    │
+    ├─→ "Build MVP for [problem]"
+    │   └─→ Go to: MVP Rapid Development Workflow
+    │
+    ├─→ "Design architecture for [use case]"
+    │   └─→ Go to: Architecture Design Workflow
+    │
+    ├─→ "Set up RAG pipeline"
+    │   └─→ Go to: RAG Implementation Workflow
+    │
+    └─→ "Select tech stack" or "What tools to use"
+        └─→ Go to: Technology Selection Workflow
+        </pre>
+
+        <h2>MVP Rapid Development Workflow</h2>
+        <p>For requests like "Build an MVP for X" or "Create a solution for Y problem":</p>
+
+        <div class="workflow">
+            <h3>Step 1: Requirements Clarification</h3>
+            <p>Ask these critical questions:</p>
+            <ol>
+                <li><strong>Deployment:</strong> On-premises or cloud? Any geographic/data residency requirements?</li>
+                <li><strong>Data Sources:</strong> What document stores, file stores, or organizational tools exist?</li>
+                <li><strong>Automation:</strong> Is AI automation available in the organization?</li>
+                <li><strong>Timeline:</strong> Confirm 1-2 week MVP expectation and priority features</li>
+            </ol>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 2: Architecture Design</h3>
+            <p>Design using this modular structure:</p>
+            <pre>
+MVP Architecture
+├── Data Layer (RAG Foundation)
+│   ├── Document Store Connector
+│   ├── File Store Connector
+│   └── Organizational Tool Exporters
+├── AI Core
+│   ├── GenAI Module (LLMs, generation)
+│   ├── Agentic AI Module (decision-making, workflows)
+│   └── RAG Module (retrieval, grounding)
+├── API Layer
+│   ├── REST/GraphQL endpoints
+│   └── Authentication/Authorization
+└── Automation Layer (if available)
+    └── AI Automation integrations
+            </pre>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 3: Technology Selection</h3>
+            <p>Refer to <a href="references/tech-stack.html" class="reference-link">tech-stack.html</a> for open-source tools. Apply these principles:</p>
+            <ul>
+                <li><strong>Prefer mature, well-documented projects</strong> for 1-2 week timeline</li>
+                <li><strong>Choose deployment-agnostic tools</strong> (Docker-compatible)</li>
+                <li><strong>Prioritize active communities</strong> for troubleshooting support</li>
+                <li><strong>Validate open-source licenses</strong> for client requirements</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 4: Implementation</h3>
+            <ol>
+                <li><strong>Scaffold project structure</strong> - Create modular directory layout</li>
+                <li><strong>Start with RAG</strong> - Implement data ingestion first</li>
+                <li><strong>Add GenAI layer</strong> - Integrate LLM for generation</li>
+                <li><strong>Build Agentic AI</strong> - Add decision-making and workflow logic</li>
+                <li><strong>Expose APIs</strong> - Create endpoints for all operations</li>
+                <li><strong>Integrate automation</strong> - If available, connect to AI automation tools</li>
+            </ol>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 5: Validation</h3>
+            <p>Ensure MVP meets all Core Architecture Requirements:</p>
+            <ul>
+                <li>✓ Uses only open-source technologies</li>
+                <li>✓ Can deploy on-prem AND cloud</li>
+                <li>✓ All components have API endpoints</li>
+                <li>✓ Modules are independently deployable</li>
+                <li>✓ RAG uses document/file stores</li>
+                <li>✓ Includes GenAI, Agentic AI, RAG</li>
+                <li>✓ Ready for automation integration</li>
+                <li>✓ Completed within 1-2 weeks</li>
+            </ul>
+        </div>
+
+        <h2>Architecture Design Workflow</h2>
+        <p>For requests focused on architecture planning without immediate implementation:</p>
+
+        <div class="workflow">
+            <h3>Step 1: Understand Use Case</h3>
+            <p>Gather:</p>
+            <ul>
+                <li><strong>Problem statement</strong> - What client problem does this solve?</li>
+                <li><strong>User personas</strong> - Who will use this?</li>
+                <li><strong>Scale requirements</strong> - Expected data volume, users, requests</li>
+                <li><strong>Integration points</strong> - Existing systems to connect with</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 2: Design Modular Components</h3>
+            <p>Use this template:</p>
+            <pre>
+## Architecture Overview
+
+### Data Layer
+- **Document Store**: [Technology choice]
+- **File Store**: [Technology choice]
+- **Org Tools**: [Integration approach]
+
+### AI Core
+- **GenAI**: [Model selection, inference approach]
+- **Agentic AI**: [Decision framework, workflow engine]
+- **RAG**: [Retrieval strategy, embedding approach]
+
+### API Layer
+- **Endpoints**: [List key APIs]
+- **Auth**: [Authentication approach]
+
+### Deployment
+- **On-Prem**: [Containerization, orchestration]
+- **Cloud**: [Cloud-agnostic approach]
+            </pre>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 3: Document Integration Points</h3>
+            <p>For each external system, specify:</p>
+            <ul>
+                <li><strong>Data format</strong> (JSON, CSV, PDFs, etc.)</li>
+                <li><strong>Access method</strong> (File export, API, database query)</li>
+                <li><strong>Update frequency</strong> (Real-time, batch, scheduled)</li>
+                <li><strong>RAG strategy</strong> (How data feeds into retrieval)</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 4: Plan for Extensibility</h3>
+            <p>Design with future enhancements in mind:</p>
+            <ul>
+                <li><strong>New data sources</strong> - How to add more connectors</li>
+                <li><strong>Advanced integrations</strong> - API hooks for future needs</li>
+                <li><strong>Scaling</strong> - Horizontal scaling approach</li>
+                <li><strong>Monitoring</strong> - Observability and logging</li>
+            </ul>
+        </div>
+
+        <h2>RAG Implementation Workflow</h2>
+        <p>For requests focused specifically on RAG pipeline setup:</p>
+
+        <div class="workflow">
+            <h3>Step 1: Data Source Assessment</h3>
+            <p>Identify available sources:</p>
+            <ol>
+                <li><strong>Document stores</strong> - Confluence, SharePoint, knowledge bases</li>
+                <li><strong>File stores</strong> - S3, NAS, shared drives</li>
+                <li><strong>Organizational tools</strong> - Jira exports, Slack archives, email dumps</li>
+            </ol>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 2: Ingestion Pipeline</h3>
+            <p>Design data flow:</p>
+            <pre>
+Data Sources → Extraction → Chunking → Embedding → Vector Store → Retrieval
+            </pre>
+            <p>Key decisions:</p>
+            <ul>
+                <li><strong>Chunking strategy</strong> - Token limits, overlap, semantic boundaries</li>
+                <li><strong>Embedding model</strong> - Open-source model selection (sentence-transformers, etc.)</li>
+                <li><strong>Vector store</strong> - Technology choice (Milvus, Weaviate, ChromaDB, etc.)</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 3: Retrieval Strategy</h3>
+            <p>Choose approach:</p>
+            <ul>
+                <li><strong>Semantic search</strong> - Vector similarity</li>
+                <li><strong>Hybrid search</strong> - Combine keyword + semantic</li>
+                <li><strong>Metadata filtering</strong> - Filter by date, source, tags</li>
+                <li><strong>Reranking</strong> - Post-retrieval scoring</li>
+            </ul>
+            <p>See <a href="references/rag-patterns.html" class="reference-link">rag-patterns.html</a> for detailed guidance.</p>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 4: Integration with GenAI</h3>
+            <p>Connect retrieval to generation:</p>
+            <ol>
+                <li><strong>Query processing</strong> - User query → retrieval query</li>
+                <li><strong>Context assembly</strong> - Retrieved docs → prompt context</li>
+                <li><strong>Generation</strong> - LLM with grounded context</li>
+                <li><strong>Citation</strong> - Reference source documents</li>
+            </ol>
+        </div>
+
+        <h2>Technology Selection Workflow</h2>
+        <p>For requests about which tools to use:</p>
+
+        <div class="workflow">
+            <h3>Step 1: Identify Component Needs</h3>
+            <p>Map user requirements to architecture components:</p>
+            <ul>
+                <li><strong>GenAI needs</strong> → LLM inference, model hosting</li>
+                <li><strong>Agentic AI needs</strong> → Workflow orchestration, decision frameworks</li>
+                <li><strong>RAG needs</strong> → Embeddings, vector stores, retrieval</li>
+                <li><strong>Data needs</strong> → Connectors, ETL, storage</li>
+                <li><strong>API needs</strong> → Web frameworks, authentication</li>
+                <li><strong>Deployment needs</strong> → Containerization, orchestration</li>
+            </ul>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 2: Apply Selection Criteria</h3>
+            <p>For each component, evaluate:</p>
+            <ol>
+                <li><strong>Open Source</strong> ✓ Required - Must have permissive license</li>
+                <li><strong>Maturity</strong> - Production-ready, stable releases</li>
+                <li><strong>Documentation</strong> - Clear guides for 1-2 week timeline</li>
+                <li><strong>Deployment</strong> - Works on-prem AND cloud</li>
+                <li><strong>Community</strong> - Active support, maintained</li>
+                <li><strong>Modularity</strong> - API-driven, composable</li>
+            </ol>
+        </div>
+
+        <div class="workflow">
+            <h3>Step 3: Provide Recommendations</h3>
+            <p>See <a href="references/tech-stack.html" class="reference-link">tech-stack.html</a> for curated open-source tools.</p>
+        </div>
+
+        <h2 id="best-practices">Best Practices</h2>
+
+        <h3>Speed Without Sacrificing Quality</h3>
+        <ul>
+            <li><strong>Use proven patterns</strong> - Don't reinvent architecture</li>
+            <li><strong>Start with core features</strong> - MVP = Minimum Viable Product</li>
+            <li><strong>Leverage templates</strong> - Reuse project structures</li>
+            <li><strong>Automate setup</strong> - Scripts for scaffolding, deployment</li>
+            <li><strong>Parallel development</strong> - Independent modules enable parallel work</li>
+        </ul>
+
+        <h3>Modular Design Principles</h3>
+        <ul>
+            <li><strong>Clear interfaces</strong> - API contracts between modules</li>
+            <li><strong>Loose coupling</strong> - Modules communicate via APIs only</li>
+            <li><strong>Independent deployment</strong> - Each module can be updated separately</li>
+            <li><strong>Configuration-driven</strong> - Behavior changes without code changes</li>
+            <li><strong>Testable in isolation</strong> - Unit tests per module</li>
+        </ul>
+
+        <h3>Deployment Flexibility</h3>
+        <ul>
+            <li><strong>Containerize everything</strong> - Docker for consistency</li>
+            <li><strong>Externalize configuration</strong> - Environment variables, config files</li>
+            <li><strong>Stateless services</strong> - Data in stores, not application memory</li>
+            <li><strong>Health checks</strong> - Monitoring endpoints for all services</li>
+            <li><strong>Documentation</strong> - Deploy on-prem and cloud instructions</li>
+        </ul>
+
+        <h2 id="patterns">Common Patterns</h2>
+
+        <div class="pattern-box">
+            <h3>Pattern 1: Document Q&A MVP</h3>
+            <p><strong>Use case:</strong> Answer questions from company documents</p>
+            <p><strong>Stack:</strong></p>
+            <ul>
+                <li><strong>Data:</strong> Document store exports (PDFs, DOCX)</li>
+                <li><strong>RAG:</strong> Embeddings + vector store</li>
+                <li><strong>GenAI:</strong> Open-source LLM (Llama, Mistral)</li>
+                <li><strong>API:</strong> REST endpoints for queries</li>
+            </ul>
+            <p><strong>Timeline:</strong> 1 week</p>
+        </div>
+
+        <div class="pattern-box">
+            <h3>Pattern 2: Workflow Automation MVP</h3>
+            <p><strong>Use case:</strong> Automate decision-making workflows</p>
+            <p><strong>Stack:</strong></p>
+            <ul>
+                <li><strong>Data:</strong> Organizational tool exports (tickets, tasks)</li>
+                <li><strong>Agentic AI:</strong> Workflow engine + decision rules</li>
+                <li><strong>GenAI:</strong> LLM for recommendations</li>
+                <li><strong>Automation:</strong> AI automation tool integration</li>
+            </ul>
+            <p><strong>Timeline:</strong> 1-2 weeks</p>
+        </div>
+
+        <div class="pattern-box">
+            <h3>Pattern 3: Knowledge Synthesis MVP</h3>
+            <p><strong>Use case:</strong> Synthesize insights from multiple sources</p>
+            <p><strong>Stack:</strong></p>
+            <ul>
+                <li><strong>Data:</strong> Multiple document/file stores</li>
+                <li><strong>RAG:</strong> Multi-source retrieval</li>
+                <li><strong>GenAI:</strong> LLM for synthesis</li>
+                <li><strong>Agentic AI:</strong> Source prioritization logic</li>
+            </ul>
+            <p><strong>Timeline:</strong> 2 weeks</p>
+        </div>
+
+        <h2 id="resources">Resources</h2>
+
+        <h3>References</h3>
+        <div style="margin: 20px 0;">
+            <a href="references/tech-stack.html" class="reference-link">Tech Stack Guide</a>
+            <a href="references/rag-patterns.html" class="reference-link">RAG Patterns</a>
+            <a href="references/deployment.html" class="reference-link">Deployment Guide</a>
+            <a href="references/integration-patterns.html" class="reference-link">Integration Patterns</a>
+        </div>
+        <p>Load these references when you need detailed guidance on specific topics.</p>
+
+        <h2>Validation Checklist</h2>
+        <p>Before completing any MVP or architecture, verify:</p>
+        <div class="checklist">
+            <ul>
+                <li>Uses only open-source technologies</li>
+                <li>Documented deployment for on-prem</li>
+                <li>Documented deployment for cloud</li>
+                <li>All components expose APIs</li>
+                <li>Modules are independently deployable</li>
+                <li>RAG uses document/file stores as specified</li>
+                <li>Includes GenAI component</li>
+                <li>Includes Agentic AI component</li>
+                <li>Includes RAG component</li>
+                <li>AI automation integration points identified</li>
+                <li>Can be delivered within 1-2 weeks</li>
+                <li>Architecture is modular and extensible</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
